@@ -27,6 +27,11 @@ export const MovieResult = ({ searchData }: MovieResultProps) => {
         {movie && (
           <div className="flex flex-col">
             <h1>movie result here</h1>
+            <img
+              src={movie.Poster}
+              alt="movie poster"
+              className="w-1/2 lg:w-1/5"
+            />
             <span>Title: {movie.Title}</span>
             <span>Year: {movie.Year}</span>
             <span>Genre: {movie.Genre}</span>
