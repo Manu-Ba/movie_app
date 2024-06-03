@@ -1,7 +1,11 @@
+import { Header } from "./components/Header";
+import { MovieSearch } from "./components/MovieSearch";
+
 function App() {
   return (
     <>
-      <h1>Hello World.</h1>
+      <Header />
+      <MovieSearch />
     </>
   );
 }
