@@ -4,7 +4,7 @@ import { MovieSearch } from "./components/MovieSearch";
 function App() {
   return (
     <>
-      <Header />
+      <Header page="home" />
       <MovieSearch />
     </>
   );

@@ -4,11 +4,16 @@ import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import { FavoriteMovies } from "./components/FavoriteMovies";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/favorites",
+    element: <FavoriteMovies />,
   },
 ]);
 

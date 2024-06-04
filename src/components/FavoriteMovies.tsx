@@ -1,3 +1,10 @@
+import { Header } from "./Header";
+
 export const FavoriteMovies = () => {
-  return <div>FavoriteMovies</div>;
+  return (
+    <>
+      <Header page="favorites" />
+      <div>FavoriteMovies</div>
+    </>
+  );
 };
