@@ -32,27 +32,17 @@ export const MovieSearch = () => {
   return (
     <>
       <div className="px-10 pt-20 pb-10 text-lg font-light sm:px-20">
-        <form className="" onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-            <div className="flex flex-col">
-              <span>
-                Name of movie{" "}
-                {errors.movie && (
-                  <span className="text-red-500">{errors.movie.message}</span>
-                )}
-              </span>
-              <input
-                type="text"
-                placeholder="type here ..."
-                className="border-[1px] rounded-md px-4 mt-2 font-light text-lg border-slate-300 h-12"
-                {...register("movie")}
-              />
-            </div>
-          </div>
+        <form className="flex" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="type here ..."
+            className="h-12 px-4 text-lg font-light border rounded-l-md border-slate-300"
+            {...register("movie")}
+          />
 
           <button
             type="submit"
-            className="h-12 px-8 mt-5 font-normal text-white bg-blue-500 rounded-md"
+            className="h-12 px-8 font-normal text-white bg-blue-500 rounded-r-md"
           >
             search
           </button>
