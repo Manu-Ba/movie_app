@@ -1,4 +1,6 @@
+import { favoriteMovieList } from "../data/favorites";
 import { useGetMovie } from "../hooks/useGetMovie";
+import { favoriteMovieType } from "../types/type";
 
 type MovieResultProps = {
   searchData: string;
@@ -10,6 +12,38 @@ export const MovieResult = ({ searchData }: MovieResultProps) => {
     isLoading: isLoadingGetMovie,
     isError: isErrorGetMovie,
   } = useGetMovie(searchData);
+
+  const markAsFavorite = () => {
+    let isFav = false;
+    let alreadyInList = false;
+    let counter = 0;
+    let index = 0;
+    favoriteMovieList.map((mov: favoriteMovieType) => {
+      if (mov.imdbID == movie.imdbID) {
+        alreadyInList = true;
+        mov.isFavorite == true && (isFav = true);
+        index = counter;
+        console.log(alreadyInList + " " + isFav);
+      }
+      counter++;
+    });
+    if (alreadyInList) {
+      if (isFav) {
+        favoriteMovieList[index].isFavorite = false;
+      } else {
+        favoriteMovieList[index].isFavorite = true;
+      }
+    } else {
+      favoriteMovieList.push({
+        imdbID: movie.imdbID,
+        isFavorite: true,
+        starRating: 5,
+        comments: [],
+      });
+    }
+
+    console.log(favoriteMovieList);
+  };
 
   return (
     <div className="px-10 sm:px-20">
@@ -25,22 +59,30 @@ export const MovieResult = ({ searchData }: MovieResultProps) => {
         </div> */}
 
         {movie && (
-          <div className="flex flex-col">
-            <h1>movie result here</h1>
-            <div className="flex">
-              <img
-                src={movie.Poster}
-                alt="movie poster"
-                className="w-1/2 lg:w-1/5"
-              />
-              <div className="flex flex-col">
-                <span>Title: {movie.Title}</span>
-                <span>Year: {movie.Year}</span>
-                <span>Genre: {movie.Genre}</span>
-                <span>Summary: {movie.Plot}</span>
+          <>
+            <div className="flex flex-col">
+              <h1>movie result here</h1>
+              <div className="flex">
+                <img
+                  src={movie.Poster}
+                  alt="movie poster"
+                  className="w-1/2 lg:w-1/5"
+                />
+                <div className="flex flex-col">
+                  <span>Title: {movie.Title}</span>
+                  <span>Year: {movie.Year}</span>
+                  <span>Genre: {movie.Genre}</span>
+                  <span>Summary: {movie.Plot}</span>
+                </div>
               </div>
             </div>
-          </div>
+            <button
+              onClick={() => markAsFavorite()}
+              className="h-12 px-8 border rounded-md hover:bg-slate-100"
+            >
+              favorite
+            </button>
+          </>
         )}
         {isLoadingGetMovie && <p>Loading...</p>}
         {isErrorGetMovie && <p>Film konnte nicht geladen werden...</p>}

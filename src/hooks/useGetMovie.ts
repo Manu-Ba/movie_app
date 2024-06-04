@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { apikey } from "../keys/apikey";
+import { apikey } from "../data/apikey";
 
 const getMovie = async (searchKey: string) => {
   const apik = apikey;
