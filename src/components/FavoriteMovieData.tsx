@@ -5,6 +5,9 @@ import { useState } from "react";
 import { useDeleteFavorite } from "../hooks/useDeleteFavorite";
 import { useRateMovie } from "../hooks/useRateMovie";
 import { favoriteMovieType } from "../types/type";
+import { useAddComment } from "../hooks/useAddComment";
+import { useEditComment } from "../hooks/useEditComment";
+import { useDeleteComment } from "../hooks/useDeleteComment";
 
 type FavoriteMovieDataProps = {
   fav: favoriteMovieType;
@@ -29,6 +32,9 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
 
   const { mutate: deleteFavorite } = useDeleteFavorite();
   const { mutate: rateMovie } = useRateMovie();
+  const { mutate: addComment } = useAddComment();
+  const { mutate: editComment } = useEditComment();
+  const { mutate: deleteComment } = useDeleteComment();
 
   const [rate, setRate] = useState(false);
   const [comment, setComment] = useState(false);
@@ -39,7 +45,25 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
   };
 
   const onSubmit = (data: Inputs) => {
-    console.log("adding comment: " + data.comment);
+    addComment({ imdbID: fav.imdbID, comment: data.comment });
+    setComment(false);
+  };
+
+  const editCom = (commentIndex: number) => {
+    let editCommentData = {
+      imdbID: fav.imdbID,
+      commentID: commentIndex,
+      comment: "edited test comment.",
+    };
+    editComment(editCommentData);
+  };
+
+  const deleteCom = (commentIndex: number) => {
+    let deleteCommentData = {
+      imdbID: fav.imdbID,
+      commentID: commentIndex,
+    };
+    deleteComment(deleteCommentData);
   };
 
   return (
@@ -93,7 +117,10 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
         {
           <div className="flex flex-col">
             {fav.comments.map((comment: string, index: number) => (
-              <span key={index}>{comment}</span>
+              <span key={index}>
+                {comment} <button onClick={() => editCom(index)}>✎</button>{" "}
+                <button onClick={() => deleteCom(index)}>❌</button>
+              </span>
             ))}
           </div>
         }
