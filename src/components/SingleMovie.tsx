@@ -27,7 +27,7 @@ export const SingleMovie = () => {
     <>
       <Header page="" />
       {data && (
-        <div className="flex flex-col px-10 py-20 font-light sm:px-20 text-md lg:text-lg">
+        <div className="flex flex-col px-10 pt-20 font-light sm:px-20 text-md lg:text-lg">
           <div className="flex flex-col gap-10 pb-10 lg:flex-row lg:gap-24">
             <img
               src={data.Poster}

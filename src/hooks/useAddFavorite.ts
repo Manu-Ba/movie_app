@@ -2,7 +2,6 @@ import axios from "axios";
 import { useQueryClient, useMutation } from "react-query";
 
 const addFavorite = async (imdbID: string) => {
-  console.log(imdbID);
   try {
     const response = await axios.post(`http://localhost:3000/api/fav`, {
       imdbID: imdbID,

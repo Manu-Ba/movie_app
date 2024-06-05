@@ -6,11 +6,7 @@ type MovieListItemProps = {
 };
 
 export const MovieListItem = ({ movie }: MovieListItemProps) => {
-  const {
-    isLoading: isLoadingAddFavorite,
-    isError: isErrorErrorAddFavorite,
-    mutate: addFavorite,
-  } = useAddFavorite();
+  const { mutate: addFavorite } = useAddFavorite();
   return (
     <div className="h-16 grid grid-cols-3 lg:grid-cols-2 border-b-[1px] font-light">
       <span className="flex items-center h-full px-0 sm:px-3">
