@@ -4,6 +4,7 @@ type MovieListItemProps = {
   movie: MovieType;
 };
 
+// single list item in search results
 export const MovieListItem = ({ movie }: MovieListItemProps) => {
   return (
     <div className="grid grid-cols-3 font-light border-b min-h-16 lg:grid-cols-2">

@@ -5,6 +5,7 @@ type FavoritesListItemProps = {
   mov: favoriteMovieType;
 };
 
+// single list item in favorite movies
 export const FavoritesListItem = ({ mov }: FavoritesListItemProps) => {
   const {
     data: movie,

@@ -12,6 +12,7 @@ const schema = yup.object().shape({
   movie: yup.string().required("*"),
 });
 
+// movie search input form
 export const MovieSearch = () => {
   const {
     register,

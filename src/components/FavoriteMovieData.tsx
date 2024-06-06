@@ -19,6 +19,7 @@ const schema = yup.object().shape({
   comment: yup.string().required("* Comment text is required."),
 });
 
+// rate movie, add comments, and delete favorites in the detailview for favorite movies.
 export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
   const {
     register,

@@ -6,6 +6,7 @@ import { useAddFavorite } from "../hooks/useAddFavorite";
 import { FavoriteMovieData } from "./FavoriteMovieData";
 import { Footer } from "./Footer";
 
+// detail-view for movie
 export const SingleMovie = () => {
   const { movieID } = useParams();
   const stringMovieID = String(movieID);

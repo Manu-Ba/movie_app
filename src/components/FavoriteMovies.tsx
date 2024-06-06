@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import { FavoritesListItem } from "./FavoritesListItem";
 import { Footer } from "./Footer";
 
+// list of movies saved as favorites
 export const FavoriteMovies = () => {
   const {
     data: favMovieList,

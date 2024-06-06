@@ -6,6 +6,7 @@ type MovieResultProps = {
   searchData: string;
 };
 
+// movie search results
 export const MovieResult = ({ searchData }: MovieResultProps) => {
   const {
     data: movies,
