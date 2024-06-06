@@ -6,7 +6,7 @@ type MovieListItemProps = {
 
 export const MovieListItem = ({ movie }: MovieListItemProps) => {
   return (
-    <div className="h-16 grid grid-cols-3 lg:grid-cols-2 border-b-[1px] font-light">
+    <div className="grid grid-cols-3 font-light border-b min-h-16 lg:grid-cols-2">
       <span className="flex items-center h-full px-0 sm:px-3">
         {movie.Title}
       </span>

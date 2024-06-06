@@ -31,18 +31,21 @@ export const MovieSearch = () => {
 
   return (
     <>
-      <div className="px-10 pt-20 pb-10 text-lg font-light sm:px-20">
-        <form className="flex" onSubmit={handleSubmit(onSubmit)}>
+      <div className="px-3 pt-10 pb-10 text-lg font-light lg:pt-20 sm:px-20">
+        <form
+          className="flex flex-col lg:flex-row"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input
             type="text"
             placeholder="type here ..."
-            className="h-12 px-4 text-lg font-light border rounded-l-md border-slate-300"
+            className="h-12 px-4 text-lg font-light border rounded-md lg:rounded-l-md lg:rounded-r-none border-slate-300"
             {...register("movie")}
           />
 
           <button
             type="submit"
-            className="h-12 px-8 font-normal text-white bg-blue-500 rounded-r-md"
+            className="h-12 px-4 mt-3 font-normal text-white bg-blue-500 rounded-md lg:mt-0 lg:px-8 lg:rounded-r-md lg:rounded-l-none"
           >
             search
           </button>

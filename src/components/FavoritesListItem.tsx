@@ -14,12 +14,11 @@ export const FavoritesListItem = ({ mov }: FavoritesListItemProps) => {
   return (
     <>
       {movie && (
-        <div className="h-16 grid grid-cols-3 lg:grid-cols-2 border-b-[1px] font-light">
+        <div className="grid grid-cols-3 font-light border-b min-h-16 lg:grid-cols-2">
           <span className="flex items-center h-full px-0 sm:px-3">
             {movie.Title}
           </span>
           <span className="flex items-center justify-between w-full h-full col-span-2 gap-1 px-0 lg:w-3/4 sm:px-3 lg:col-span-1">
-            <span className="w-full">{movie.Year}</span>
             <span className="w-full">{mov.starRating}</span>
 
             <a
