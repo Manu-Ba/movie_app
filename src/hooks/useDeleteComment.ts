@@ -9,8 +9,11 @@ type DeleteCommentDataType = {
 const deleteComment = async (deleteCommentData: DeleteCommentDataType) => {
   console.log(deleteCommentData.commentID);
   try {
-    const response = await axios.delete(
-      `http://localhost:3000/api/fav/${deleteCommentData.imdbID}/comment/${deleteCommentData.commentID}`
+    const response = await axios.patch(
+      `http://localhost:3000/api/fav/${deleteCommentData.imdbID}/comments`,
+      {
+        commentID: deleteCommentData.commentID,
+      }
     );
     console.log("here. - not going here for some reason...");
     return response.data;

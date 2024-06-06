@@ -21,7 +21,6 @@ export const MovieResult = ({ searchData }: MovieResultProps) => {
           <span className="flex items-center h-full px-0 sm:px-3">Title</span>
           <span className="flex items-center justify-between w-full h-full col-span-2 gap-1 px-0 lg:w-3/4 sm:px-3 lg:col-span-1">
             <span className="w-full">Year</span>
-            <span className="w-full">Type</span>
             <span className="w-full">Detailview</span>
           </span>
         </div>
