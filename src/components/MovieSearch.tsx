@@ -32,6 +32,9 @@ export const MovieSearch = () => {
   return (
     <>
       <div className="px-3 pt-10 pb-10 text-lg font-light sm:px-20">
+        {errors.movie && (
+          <span className="text-red-500">{errors.movie.message}</span>
+        )}
         <form
           className="flex flex-col lg:flex-row"
           onSubmit={handleSubmit(onSubmit)}

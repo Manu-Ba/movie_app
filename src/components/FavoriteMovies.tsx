@@ -2,6 +2,7 @@ import { useGetAllFavorites } from "../hooks/useGetAllFavorites";
 import { favoriteMovieType } from "../types/type";
 import { Header } from "./Header";
 import { FavoritesListItem } from "./FavoritesListItem";
+import { Footer } from "./Footer";
 
 export const FavoriteMovies = () => {
   const {
@@ -34,6 +35,7 @@ export const FavoriteMovies = () => {
           {isErrorGetAllFavorites && <span>Error loading favorites.</span>}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useGetMovieByImdbID } from "../hooks/useGetMovieByImdbID";
 import { useGetSingleFavorite } from "../hooks/useGetSingleFavorite";
 import { useAddFavorite } from "../hooks/useAddFavorite";
 import { FavoriteMovieData } from "./FavoriteMovieData";
+import { Footer } from "./Footer";
 
 export const SingleMovie = () => {
   const { movieID } = useParams();
@@ -21,7 +22,11 @@ export const SingleMovie = () => {
     isError: isErrorGetFavorite,
   } = useGetSingleFavorite(stringMovieID);
 
-  const { mutate: addFavorite } = useAddFavorite();
+  const {
+    isLoading: isLoadingAddFavorite,
+    isError: isErrorAddFavorite,
+    mutate: addFavorite,
+  } = useAddFavorite();
 
   return (
     <>
@@ -88,7 +93,12 @@ export const SingleMovie = () => {
         {isErrorGetFavorite && (
           <span>error loading information about favorites.</span>
         )}
+        {isLoadingAddFavorite && <span>Loading...</span>}
+        {isErrorAddFavorite && (
+          <span>An error occurred while adding to favorites.</span>
+        )}
       </div>
+      <Footer />
     </>
   );
 };
