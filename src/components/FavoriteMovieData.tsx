@@ -68,9 +68,9 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
 
   return (
     <div>
-      <div>
+      <div className="flex justify-between">
         {rate ? (
-          <>
+          <div>
             <button
               onClick={() => starRateMovie(1)}
               className="h-12 px-2 border rounded-md hover:bg-slate-100"
@@ -101,47 +101,50 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
             >
               5⭐️
             </button>
-          </>
+          </div>
         ) : (
           <span>Star Rating: {fav.starRating}</span>
         )}
         <button
           onClick={() => setRate(!rate)}
-          className="h-12 px-8 border rounded-md hover:bg-slate-100"
+          className="h-12 px-5 border rounded-md hover:bg-slate-100"
         >
           rate movie
         </button>
       </div>
-      <div>
-        <h1>Comments:</h1>
-        {
-          <div className="flex flex-col">
-            {fav.comments.map((comment: string, index: number) => (
-              <span key={index}>
-                {comment}
-                {/* <button onClick={() => editCom(index)}>✎</button>{" "}
+      <div className="mt-10">
+        <div className="flex justify-between">
+          <h1 className="font-semibold">Comments:</h1>
+          <button
+            onClick={() => setComment(!comment)}
+            className="h-12 px-5 border rounded-md hover:bg-slate-100"
+          >
+            add comment
+          </button>
+        </div>
+
+        <div className="flex flex-col">
+          {fav.comments.map((comment: string, index: number) => (
+            <span key={index}>
+              {comment}
+              {/* <button onClick={() => editCom(index)}>✎</button>{" "}
                 <button onClick={() => deleteCom(index)}>❌</button> */}
-              </span>
-            ))}
-          </div>
-        }
-        <button
-          onClick={() => setComment(!comment)}
-          className="h-12 px-8 border rounded-md hover:bg-slate-100"
-        >
-          add comment
-        </button>
+            </span>
+          ))}
+        </div>
+
         {comment && (
-          <form className="flex" onSubmit={handleSubmit(onSubmit)}>
+          <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <textarea
+              autoFocus
               placeholder="type here ..."
-              className="h-12 px-4 font-light border text-md rounded-l-md border-slate-300"
+              className="h-12 px-4 font-light border text-md rounded-t-md border-slate-300"
               {...register("comment")}
             />
 
             <button
               type="submit"
-              className="h-12 px-8 font-normal text-white bg-blue-500 rounded-r-md"
+              className="h-12 px-8 font-normal text-white bg-blue-500 hover:opacity-80 rounded-b-md"
             >
               submit
             </button>
@@ -150,7 +153,7 @@ export const FavoriteMovieData = ({ fav }: FavoriteMovieDataProps) => {
       </div>
       <button
         onClick={() => deleteFavorite(fav.imdbID)}
-        className="h-12 px-8 border rounded-md hover:bg-slate-100"
+        className="h-12 px-8 mt-10 text-white bg-red-600 rounded-md hover:bg-red-400"
       >
         delete favorite
       </button>

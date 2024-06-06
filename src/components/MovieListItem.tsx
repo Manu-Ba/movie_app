@@ -14,7 +14,7 @@ export const MovieListItem = ({ movie }: MovieListItemProps) => {
         <span className="w-full">{movie.Year}</span>
 
         <a href={`/${movie.imdbID}`} className="flex items-center w-full h-12">
-          <button className="w-full h-12 font-normal text-white rounded-md bg-gradient-to-r from-pink-500 to-orange-400">
+          <button className="w-full h-12 font-normal text-white rounded-md bg-gradient-to-r from-pink-500 to-orange-400 hover:from-orange-400 hover:to-pink-500 hover:opacity-80">
             Show more
           </button>
         </a>
