@@ -8,7 +8,6 @@ const getMovie = async (searchKey: string) => {
     const response = await axios.get(
       `http://www.omdbapi.com/?apikey=${apik}&s=${searchKey}`
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error("error fetching movie");

@@ -14,7 +14,6 @@ const rateMovie = async (rateMovieData: RateMovieDataType) => {
         rating: rateMovieData.rating,
       }
     );
-    console.log("rating movie...");
     return response.data;
   } catch (error) {
     throw new Error("Error rating movie.");
