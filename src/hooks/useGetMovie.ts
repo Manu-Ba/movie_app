@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { apikey } from "../data/apikey";
 
 const getMovie = async (searchKey: string) => {
-  const apik = apikey;
   try {
     const response = await axios.get(
-      `http://www.omdbapi.com/?apikey=${apik}&s=${searchKey}`
+      `${import.meta.env.VITE_APIURL}?apikey=${
+        import.meta.env.VITE_APIKEY
+      }&s=${searchKey}`
     );
     return response.data;
   } catch (error) {
